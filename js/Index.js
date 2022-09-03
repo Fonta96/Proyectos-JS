@@ -23,6 +23,18 @@ function revicionCuotas(cantidadCuotas,precioProducto){
     
 }
 
+//Funcion que comprueba la existencia de un objeto en especifico EJ: 1 objeto llamado Celular.
+
+function existenProducto(){
+    let productoABuscar= prompt("Ingrese el producto a buscar:")
+    let existe = listaProductos.some ((producto)=> producto.nombre === productoABuscar)
+    if(existe) {
+        console.log("Se encontro al menos 1",productoABuscar)
+    }else{
+        console.warn("no se encontro lo que buscaba")
+    }
+}
+
 //Funcion que calcula el precio del productos con el iva
 
 function sumaIva(productos){
@@ -41,7 +53,16 @@ let listaProductosCuota = []
 
 let CargaDatos = true 
 while(CargaDatos === true) {
-    listaProductos.push([parseFloat(prompt("Ingrese el valor del producto")), parseFloat(prompt("Cuotas, 3,6 y 12"))])
+    let nombreProducto = prompt("Ingresa el nombre del producto")
+    let precioProducto = parseFloat(prompt("Ingresa el precio del producto"))
+    let cuotaProducto = parseFloat(prompt("Ingresa la cuota del producto: 3,6 o 12"))
+    const objetoProducto = {
+        nombre: nombreProducto,
+        precio: precioProducto,
+        cuota: cuotaProducto,
+    }
+    listaProductos.push(objetoProducto)
+    //listaProductos.push([parseFloat(prompt("Ingrese el valor del producto")), parseFloat(prompt("Cuotas, 3,6 y 12"))])
     let respuesta = parseInt(prompt("Desea agregar otro producto (1 si, 0 no)"))
     if(respuesta === 1) {
         CargaDatos = true 
@@ -53,7 +74,7 @@ console.warn("Hasta aca nomas papu")
 // ciclo forEach de la lista de productos, para agregar el valor de la cuota al producto
 
 listaProductos.forEach(producto => {
-    listaProductosCuota.push(revicionCuotas(producto[1],producto[0]))
+    listaProductosCuota.push(revicionCuotas(producto.cuota,producto.precio))
 });
 
 //ciclo forEach que agrega el valor del iva al producto
@@ -65,50 +86,14 @@ listaProductosCuota.forEach(producto => {
 //ciclo forEach que calcula el valor total e imprime el valor de cada producto 
 
 let valorTotal = 0
+let contador = 0
 listaProductosIva.forEach(producto => {
     valorTotal += producto
-    document.write("El valor del producto es  ",  + producto + "<br>")
+    document.write("El valor del " + listaProductos[contador].nombre + " " + producto + "<br>")
+        contador++
 });
 document.write("El valor total de los producto es  ",  + valorTotal)
 
+// Se comprueba si existe un producto
 
-
-
-
-
-
-
-/*let prod1 = parseFloat(prompt("Ingrese el valor del producto"))
-let prod1cuotas = parseFloat(prompt("Cuotas, 3,6 y 12"))
-let prod2 = parseFloat(prompt("Ingrese valor del producto 2"))
-let prod2cuotas = parseFloat(prompt("Cuotas, 3,6 y 12"))
-let prod3 = parseFloat(prompt("Ingrese el valor del producto 3"))
-let prod3cuotas = parseFloat(prompt("Cuotas, 3,6 y 12"))
-
-prod1 = revicionCuotas(prod1cuotas, prod1)
-prod2 = revicionCuotas(prod2cuotas, prod2)
-prod3 = revicionCuotas(prod3cuotas, prod3)
-
-prod1 = sumaIva(prod1)
-prod2 = sumaIva(prod2)
-prod3 = sumaIva(prod3)
-
-let valorTotal = prod1 + prod2 + prod3
-
-document.write("El valor del producto 1 es  ",  + prod1 + "<br>")
-document.write("El valor del producto 2 es  ",  + prod2 + "<br>")
-document.write("El valor del producto 3 es  ",  + prod3 + "<br>")
-document.write("El valor total de los productos ", + valorTotal)*/
-
-
-
-
-
-
-
-
-
-
-
-
-
+existenProducto()
