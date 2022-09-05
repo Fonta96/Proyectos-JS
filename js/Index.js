@@ -29,9 +29,9 @@ function existenProducto(){
     let productoABuscar= prompt("Ingrese el producto a buscar:")
     let existe = listaProductos.some ((producto)=> producto.nombre === productoABuscar)
     if(existe) {
-        console.log("Se encontro al menos 1",productoABuscar)
+        document.write("<br>Se encontro al menos 1 ",productoABuscar)
     }else{
-        console.warn("no se encontro lo que buscaba")
+        document.write("<br>No se encontro lo que buscaba")
     }
 }
 
@@ -40,6 +40,14 @@ function existenProducto(){
 function sumaIva(productos){
     productos *= iva
     return productos 
+}
+
+//funcion constuctura de los productos
+
+function objProducto(nombre,precio,cuota) {
+    this.nombre = nombre
+    this.precio = precio
+    this.cuota = cuota
 }
 
 //Declaracion de listas
@@ -56,13 +64,8 @@ while(CargaDatos === true) {
     let nombreProducto = prompt("Ingresa el nombre del producto")
     let precioProducto = parseFloat(prompt("Ingresa el precio del producto"))
     let cuotaProducto = parseFloat(prompt("Ingresa la cuota del producto: 3,6 o 12"))
-    const objetoProducto = {
-        nombre: nombreProducto,
-        precio: precioProducto,
-        cuota: cuotaProducto,
-    }
+    const objetoProducto = new objProducto(nombreProducto,precioProducto,cuotaProducto)
     listaProductos.push(objetoProducto)
-    //listaProductos.push([parseFloat(prompt("Ingrese el valor del producto")), parseFloat(prompt("Cuotas, 3,6 y 12"))])
     let respuesta = parseInt(prompt("Desea agregar otro producto (1 si, 0 no)"))
     if(respuesta === 1) {
         CargaDatos = true 
