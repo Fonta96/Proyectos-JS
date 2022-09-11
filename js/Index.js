@@ -22,14 +22,6 @@ function cargarProducto(nombre,precio,cuota) {
     carritoDeCompras.push(new objProducto(nombre,precio,cuota))    
 }
 
-//Funcion de testeo
-
-function imprimir() {
-     carritoDeCompras.forEach( producto => {
-        document.write(producto.nombre + " " + producto.precio + " " + producto.cuota + "<br>" )
-    });
-}
-
 //Funcion que calcula el valor del producto despues de las cuotas
 
 function revicionCuotas(){
