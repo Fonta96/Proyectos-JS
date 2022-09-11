@@ -5,8 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/index.js"></script>
-    <title>Calculadora de cuota</title>
+    <title>CARRITO DE COMPRAS</title>
 </head>
-<body>
+<body onload="msjBienvenida()" onkeypress="eventHandler(event)">
+    <div id="MensajeDeBienvenida"></div>
+    <br>
+    <button onclick="cargarProducto('producto1',1500,3)">PRODUCTO 1 - PRECIO: 1500 - CUOTAS: 3</button>
+    <button onclick="cargarProducto('producto1',1500,6)">PRODUCTO 1 - PRECIO: 1500 - CUOTAS: 6</button>
+    <button onclick="cargarProducto('producto1',1500,12)">PRODUCTO 1 - PRECIO: 1500 - CUOTAS: 12</button>
+    <br>
+    <button onclick="cargarProducto('producto2',2500,3)">PRODUCTO 2 - PRECIO: 2500 - CUOTAS: 3</button>
+    <button onclick="cargarProducto('producto2',2500,6)">PRODUCTO 2 - PRECIO: 2500 - CUOTAS: 6</button>
+    <button onclick="cargarProducto('producto2',2500,12)">PRODUCTO 2 - PRECIO: 2500 - CUOTAS: 12</button>
+    <br>
+    <button onclick="cargarProducto('producto3',3500,3)">PRODUCTO 3 - PRECIO: 3500 - CUOTAS: 3</button>
+    <button onclick="cargarProducto('producto3',3500,6)">PRODUCTO 3 - PRECIO: 3500 - CUOTAS: 6</button>
+    <button onclick="cargarProducto('producto3',3500,12)">PRODUCTO 3 - PRECIO: 3500 - CUOTAS: 12</button>
+    <h2><i>Precione ENTER para finalizar su compra.</i></h2>
+    <br>
+    <h2><i>Precione la BARRA ESPACIADORA para agregar un mensaje.</i></h2>
+    <br>
+    <div id="mensajeUsuario"></div>
 </body>
 </html>
