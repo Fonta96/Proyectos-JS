@@ -75,6 +75,11 @@ function revicionCompras() {
 function msjUsuario() {
 
     let mensaje = prompt("Escribi tu mensaje aqui.")
+    Swal.fire(
+        'Buen trabajo!',
+        'Escribiste el mensaje correctamente!',
+        'success'
+      )
     mensaje += "<br>"
     document.getElementById('mensajeUsuario').innerHTML += mensaje
 }
